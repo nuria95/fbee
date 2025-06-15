@@ -1,0 +1,39 @@
+defaults:
+  - workspace_config # this is to load the config in pretrain.py
+  - agent: fb_ddpg
+  - override hydra/launcher: submitit_slurm
+  - _self_
+
+task: cheetah_walk
+goal_space: simplified_cheetah_flip
+append_goal_to_observation: True
+uncertainty: True
+eval_every_frames: 100000
+use_wandb: true
+seed: 0
+experiment: test_cheetah
+discount: 0.98
+num_train_frames: 1000010
+replay_buffer_episodes: 1000
+save_video: False
+
+agent:
+  batch_size: 256
+  z_dim: 50
+  num_inference_steps: 10000
+  mix_ratio: 0.3
+  sampling: True
+  update_z_every_step: 100
+  update_z_proba: 1.
+  myopic: True
+  num_z_samples: 100
+  rnd_coeff: 0.5
+  rnd: False
+  rnd_embed_dim: 100
+  f_uncertainty: false
+
+num_eval_episodes: 30
+hydra:
+  run:
+    dir: ./exp_local/${now:%Y.%m.%d}/${now:%H%M%S}_${agent.name}_${task}_${experiment}
+

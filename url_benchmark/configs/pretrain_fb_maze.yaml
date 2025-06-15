@@ -1,0 +1,40 @@
+defaults:
+  - workspace_config
+  - agent: fb_ddpg
+  - override hydra/launcher: submitit_slurm
+  - _self_
+
+
+task: point_mass_maze_reach_bottom_right
+goal_space: simplified_point_mass_maze
+custom_reward: maze_multi_goal
+append_goal_to_observation: false
+uncertainty: True
+eval_every_frames: 100000
+use_wandb: true
+seed: 0
+experiment: test_maze
+discount: 0.99
+num_train_frames: 1500010
+replay_buffer_episodes: 1500
+
+agent:
+  batch_size: 256
+  z_dim: 100
+  num_inference_steps: 10000
+  mix_ratio: 0.3
+  add_trunk: true
+  sampling: True
+  update_z_every_step: 100
+  update_z_proba: 1.
+  myopic: True
+  num_z_samples: 100
+  rnd_coeff: 0.5
+  rnd: False
+  rnd_embed_dim: 100
+  f_uncertainty: false
+
+num_eval_episodes: 10
+hydra:
+  run:
+    dir: ./exp_local/${now:%Y.%m.%d}/${now:%H%M%S}_${agent.name}_${task}_${experiment}

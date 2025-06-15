@@ -1,0 +1,38 @@
+defaults:
+  - workspace_config
+  - agent: fb_ddpg
+  - override hydra/launcher: submitit_slurm
+  - _self_
+
+
+task: hopper_hop
+goal_space: simplified_hopper
+append_goal_to_observation: True
+uncertainty: True
+eval_every_frames: 100000
+use_wandb: true
+seed: 0
+experiment: test_hopper
+discount: 0.98
+num_train_frames: 1000010
+replay_buffer_episodes: 1000
+
+agent:
+  batch_size: 256
+  z_dim: 50
+  num_inference_steps: 10000
+  mix_ratio: 0.3
+  lr: 1.e-4
+  lr_coef: 1.
+  sampling: True
+  update_z_every_step: 100
+  update_z_proba: 1.
+  myopic: True
+  num_z_samples: 100
+  f_uncertainty: false
+
+num_eval_episodes: 30
+hydra:
+  run:
+    dir: ./exp_local/${now:%Y.%m.%d}/${now:%H%M%S}_${agent.name}_${task}_${experiment}
+ 
