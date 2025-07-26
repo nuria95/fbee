@@ -72,11 +72,14 @@ def angmomentum(self):
 If you use our work or some of our ideas, please consider citing us :)
 
 ```
-@article{urpi2025epistemically,
-  title={Epistemically-guided forward-backward exploration},
-  author={Urp{\'\i}, N{\'u}ria Armengol and Vlastelica, Marin and Martius, Georg and Coros, Stelian},
-  journal={arXiv preprint arXiv:2507.05477},
-  year={2025}
+@inproceedings{
+urpi2025epistemicallyguided,
+title={Epistemically-guided forward-backward exploration},
+author={N{\'u}ria Armengol Urp{\'\i} and Marin Vlastelica and Georg Martius and Stelian Coros},
+booktitle={Reinforcement Learning Conference},
+year={2025},
+url={https://openreview.net/forum?id=rJ0QbzBTRF}
+}
 }
 ```
 ## References
