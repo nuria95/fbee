@@ -80,7 +80,6 @@ booktitle={Reinforcement Learning Conference},
 year={2025},
 url={https://openreview.net/forum?id=rJ0QbzBTRF}
 }
-}
 ```
 ## References
 This codebase was adapted from the original FB codebase based on the papers:
