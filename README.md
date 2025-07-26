@@ -72,7 +72,12 @@ def angmomentum(self):
 If you use our work or some of our ideas, please consider citing us :)
 
 ```
-TB-added
+@article{urpi2025epistemically,
+  title={Epistemically-guided forward-backward exploration},
+  author={Urp{\'\i}, N{\'u}ria Armengol and Vlastelica, Marin and Martius, Georg and Coros, Stelian},
+  journal={arXiv preprint arXiv:2507.05477},
+  year={2025}
+}
 ```
 ## References
 This codebase was adapted from the original FB codebase based on the papers:
