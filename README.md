@@ -1,7 +1,7 @@
 # 🐝FBEE (Forward Backward Epistemic Exploration)
 
 
-Code for the paper "Epistemically guided Foward Backward exploration", accepted to RLC 2025.
+Code for the paper [`"Epistemically guided Foward Backward exploration"`](https://arxiv.org/pdf/2507.05477), published in RLC 2025.
 
 ## Installation
 
